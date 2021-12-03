@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/nguyen-william93/Social-API#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.14"
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15"
   }
 }
