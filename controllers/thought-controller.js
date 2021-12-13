@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 const thoughtController = {
     //get all thought
@@ -6,14 +6,17 @@ const thoughtController = {
         Thought.find({})
             .populate(
                 {
-                    path: 'user',
+                    path: 'reactions',
                     select: '-__v'
                 }
             )
             .select('-__v')
             .sort({ _id: -1 })
             .then(thoughtData => res.json(thoughtData))
-            .catch(err => res.status(400).json(err))
+            .catch(err => {
+                console.log(err)
+                res.status(400).json(err)
+            })
     },
 
     //get single thought by id
@@ -21,7 +24,7 @@ const thoughtController = {
         Thought.findOne({ _id: params.id})
             .populate(
                 {
-                    path: 'user',
+                    path: 'reactions',
                     select: '-__v',
                 }
             )
